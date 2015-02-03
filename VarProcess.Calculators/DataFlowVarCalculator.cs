@@ -39,7 +39,7 @@ namespace VarProcess.Calculators
             {
                 return _executionDataflowBlockOptions ?? (_executionDataflowBlockOptions = new ExecutionDataflowBlockOptions
                 {
-                    MaxDegreeOfParallelism = Environment.ProcessorCount * 2
+                    MaxDegreeOfParallelism = Environment.ProcessorCount
                 });
             }
         }
@@ -51,7 +51,11 @@ namespace VarProcess.Calculators
             {
                 return _dataflowLinkOptions ?? (_dataflowLinkOptions = new DataflowLinkOptions
                 {
+#if USE_MANUAL_PROPAGATION
+                    PropagateCompletion = false
+#else
                     PropagateCompletion = true
+#endif
                 });
             }
         }
@@ -90,7 +94,7 @@ namespace VarProcess.Calculators
             }, ExecutionOptions);
 
             monteCarlo.LinkTo(aggregate, DataflowLinkOptions);
-#if false
+#if USE_MANUAL_PROPAGATION
             monteCarlo.Completion.ContinueWith(t =>
             {
                 if (t.IsFaulted)

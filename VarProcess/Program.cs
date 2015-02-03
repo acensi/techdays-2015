@@ -25,44 +25,30 @@ namespace VarProcess
         {
             var portfolioProvider = new PortfoliosProvider(@"..\..\..\datas\Portfolios");
             var productParametersProvider = new StocksPricesProvider(@"..\..\..\datas\Parameters");
-           
-            RunBasicVarCalculator(portfolioProvider, productParametersProvider);
-            
-            RunDataflowCalculator(portfolioProvider, productParametersProvider);
-           
+
+            Console.WriteLine(" * Starting BasicVarCalculator");
+            var basicPerf = RunCalculator<BasicVarCalculator>(portfolioProvider, productParametersProvider);
+            Console.WriteLine(" * Starting DataFlowCalculator with {0} processors", Environment.ProcessorCount);
+            var dataFlowPerf = RunCalculator<DataFlowVarCalculator>(portfolioProvider, productParametersProvider);
+            Console.WriteLine(" Delta t = {0} ms ({1:0.00} %)", dataFlowPerf - basicPerf, (dataFlowPerf - basicPerf) / (double)basicPerf * 100.0);
             Console.ReadKey();
         }
 
-        private static void RunDataflowCalculator(PortfoliosProvider portfolioProvider, 
-                                                  StocksPricesProvider productParametersProvider)
+        private static long RunCalculator<TCalculator>(PortfoliosProvider portfolioProvider,
+                                                       StocksPricesProvider productParametersProvider) where TCalculator : IVarCalculator, new()
         {
-            var sw2 = new Stopwatch();
-            sw2.Start();
-            var dataflowVarCalculator = new DataFlowVarCalculator
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+            var calculator = new TCalculator
             {
                 PortfolioProvider = portfolioProvider,
                 ProductParametersProvider = productParametersProvider
             };
-            var result = dataflowVarCalculator.Calculate();
-            sw2.Stop();
-            Console.WriteLine("Var Dataflow Algorithm : Result -> {0} Duration -> {1} ms", 
-                                result, sw2.ElapsedMilliseconds);
-        }
-
-        private static void RunBasicVarCalculator(PortfoliosProvider portfolioProvider,
-                                                 StocksPricesProvider productParametersProvider)
-        {
-            var sw = new Stopwatch();
-            sw.Start();
-            var basicVarCalculator = new BasicVarCalculator
-            {
-                PortfolioProvider = portfolioProvider,
-                ProductParametersProvider = productParametersProvider
-            };
-            var result = basicVarCalculator.Calculate();
-            sw.Stop();
-            Console.WriteLine("Var Basic Algorithm : Result -> {0} Duration -> {1} ms", 
-                                result, sw.ElapsedMilliseconds);
+            var result = calculator.Calculate();
+            stopwatch.Stop();
+            Console.WriteLine("\tResult -> {0}, Duration -> {1} ms",
+                                result, stopwatch.ElapsedMilliseconds);
+            return stopwatch.ElapsedMilliseconds;
         }
     }
 }
