@@ -12,13 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using VarProcess.Providers;
-namespace VarProcess.Calculators
+using System.Collections;
+using System.Collections.Generic;
+
+namespace VarProcess.Utilities
 {
-    public interface IVarCalculator
+    public class NormalEnumerable : IEnumerable<double>
     {
-        IPortfoliosProvider PortfolioProvider { get; set; }
-        IProductParametersProvider ProductParametersProvider { get; set; }
-        double Calculate();
+        public IEnumerator<double> GetEnumerator()
+        {
+            return new NormalEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

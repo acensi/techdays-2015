@@ -12,16 +12,47 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using MathNet.Numerics.Distributions;
 
 namespace VarProcess.Utilities
 {
-    public static class Helpers
+    public class NormalEnumerator : IEnumerator<double>
     {
-        public static IList<double> SumList(IList<double> firsts, IList<double> seconds)
+        private Normal _distrib = new Normal();
+        private double _current = 0.0;
+
+        public void Dispose()
         {
-            return firsts.Count == 0 ? seconds : Enumerable.Range(0, seconds.Count).Select(i => firsts[i] + seconds[i]).ToList();
+
+        }
+
+        public bool MoveNext()
+        {
+            _current = _distrib.Sample();
+            return true;
+        }
+
+        public void Reset()
+        {
+            _distrib = new Normal();
+        }
+
+        public double Current
+        {
+            get
+            {
+                return _current;
+            }
+        }
+
+        object IEnumerator.Current
+        {
+            get
+            {
+                return Current;
+            }
         }
     }
 }

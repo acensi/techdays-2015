@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers.cs" />
+    <Compile Include="MonteCarloInput.cs" />
+    <Compile Include="NormalEnumerable.cs" />
+    <Compile Include="NormalEnumerator.cs" />
     <Compile Include="StatisticsUtilities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -12,13 +12,23 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-using VarProcess.Providers;
-namespace VarProcess.Calculators
+using VarProcess.Data;
+
+namespace VarProcess.Utilities
 {
-    public interface IVarCalculator
+    /// <summary>
+    /// Structure describing the input to the MonteCarlo simulation.
+    /// </summary>
+    public struct MonteCarloInput
     {
-        IPortfoliosProvider PortfolioProvider { get; set; }
-        IProductParametersProvider ProductParametersProvider { get; set; }
-        double Calculate();
+        /// <summary>
+        /// The simulation parameters.
+        /// </summary>
+        public ProductParameters Parameters;
+
+        /// <summary>
+        /// The net position of the product.
+        /// </summary>
+        public double Position;
     }
 }
