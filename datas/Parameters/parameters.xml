@@ -1,0 +1,34 @@
+<parameters>
+	<product>
+		<name>A</name>
+		<price>15,46</price>
+		<mean>0,000419</mean>
+		<standarddeviation>0,026788</standarddeviation>
+	</product>
+	<product>
+		<name>B</name>
+		<price>49,875</price>
+		<mean>-0,000156</mean>
+		<standarddeviation>0,00213917</standarddeviation>
+	</product>
+	<product>
+		<name>C</name>
+		<price>139,4</price>
+		<mean>0,000125</mean>
+		<standarddeviation>0,0006544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>D</name>
+		<price>100,4</price>
+		<mean>-0,00125</mean>
+		<standarddeviation>0,00014544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>E</name>
+		<price>59,58</price>
+		<mean>-0,00125</mean>
+		<standarddeviation>0,0002544</standarddeviation>
+	</product>
+</parameters>

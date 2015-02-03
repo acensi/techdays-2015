@@ -1,0 +1,16 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/packages
+/VarProcess/bin/Debug
+/VarProcess/obj/Debug
+/VarProcess.Calculators/bin/Debug
+/VarProcess.Calculators/obj/Debug
+/VarProcess.Data/bin/Debug
+/VarProcess.Data/obj/Debug
+/VarProcess.Providers/bin/Debug
+/VarProcess.Providers/obj/Debug
+/VarProcess.Utilities/bin/Debug
+/VarProcess.Utilities/obj/Debug
+*.suo
