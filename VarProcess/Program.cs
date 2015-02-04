@@ -14,6 +14,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Linq;
 using VarProcess.Calculators;
 using VarProcess.Providers;
 
@@ -21,10 +22,31 @@ namespace VarProcess
 {
     class Program
     {
+        static void Benchmark(uint nIterations, PortfoliosProvider portfolioProvider, StocksPricesProvider productParametersProvider)
+        {
+            double basicPerf = 0;
+            double dataFlowPerf = 0;
+            for (var i = 0; i < nIterations; ++i)
+            {
+                basicPerf += RunCalculator<BasicVarCalculator>(portfolioProvider, productParametersProvider);
+                dataFlowPerf += RunCalculator<DataFlowVarCalculator>(portfolioProvider, productParametersProvider);
+            }
+            basicPerf /= nIterations;
+            dataFlowPerf /= nIterations;
+            Console.WriteLine("{0} iterations: Basic = {1}, DataFlow = {2}", nIterations, basicPerf, dataFlowPerf);
+            Console.WriteLine(" Delta t = {0} ms ({1:0.00} %)", dataFlowPerf - basicPerf, (dataFlowPerf - basicPerf) / basicPerf * 100.0);
+        }
+
         static void Main(string[] args)
         {
             var portfolioProvider = new PortfoliosProvider(@"..\..\..\datas\Portfolios");
             var productParametersProvider = new StocksPricesProvider(@"..\..\..\datas\Parameters");
+
+            if (args.Length > 0)
+            {
+                Benchmark(UInt32.Parse(args[0]), portfolioProvider, productParametersProvider);
+                return;
+            }
 
             Console.WriteLine(" * Starting BasicVarCalculator");
             var basicPerf = RunCalculator<BasicVarCalculator>(portfolioProvider, productParametersProvider);

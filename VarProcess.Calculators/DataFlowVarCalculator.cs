@@ -76,22 +76,19 @@ namespace VarProcess.Calculators
             var totals = new List<double>();
             var aggregate = new ActionBlock<IEnumerable<double>>(doubles =>
             {
-                lock (totals)
+                if (!totals.Any())
                 {
-                    if (!totals.Any())
+                    totals.AddRange(doubles);
+                }
+                else
+                {
+                    var losses = doubles.ToList();
+                    foreach (var i in Enumerable.Range(0, losses.Count()))
                     {
-                        totals.AddRange(doubles);
-                    }
-                    else
-                    {
-                        var losses = doubles.ToList();
-                        foreach (var i in Enumerable.Range(0, losses.Count()))
-                        {
-                            totals[i] += losses[i];
-                        }
+                        totals[i] += losses[i];
                     }
                 }
-            }, ExecutionOptions);
+            });
 
             monteCarlo.LinkTo(aggregate, DataflowLinkOptions);
 #if USE_MANUAL_PROPAGATION
