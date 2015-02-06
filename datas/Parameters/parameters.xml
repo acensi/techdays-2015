@@ -1,34 +1,206 @@
 <parameters>
 	<product>
 		<name>A</name>
-		<price>15,46</price>
-		<mean>0,000419</mean>
-		<standarddeviation>0,026788</standarddeviation>
+		<price>15.46</price>
+		<mean>0.000419</mean>
+		<standarddeviation>0.026788</standarddeviation>
 	</product>
 	<product>
 		<name>B</name>
-		<price>49,875</price>
-		<mean>-0,000156</mean>
-		<standarddeviation>0,00213917</standarddeviation>
+		<price>49.875</price>
+		<mean>-0.000156</mean>
+		<standarddeviation>0.00213917</standarddeviation>
 	</product>
 	<product>
 		<name>C</name>
-		<price>139,4</price>
-		<mean>0,000125</mean>
-		<standarddeviation>0,0006544</standarddeviation>
+		<price>139.4</price>
+		<mean>0.000125</mean>
+		<standarddeviation>0.0006544</standarddeviation>
 	</product>
 	
 	<product>
 		<name>D</name>
-		<price>100,4</price>
-		<mean>-0,00125</mean>
-		<standarddeviation>0,00014544</standarddeviation>
+		<price>100</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.00014544</standarddeviation>
 	</product>
 	
 	<product>
 		<name>E</name>
-		<price>59,58</price>
-		<mean>-0,00125</mean>
-		<standarddeviation>0,0002544</standarddeviation>
+		<price>59.58</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.0002544</standarddeviation>
+	</product>
+
+	<!-- ....................................................... -->
+
+	<product>
+		<name>A1</name>
+		<price>15.46</price>
+		<mean>0.000419</mean>
+		<standarddeviation>0.026788</standarddeviation>
+	</product>
+	<product>
+		<name>B1</name>
+		<price>49.875</price>
+		<mean>-0.000156</mean>
+		<standarddeviation>0.00213917</standarddeviation>
+	</product>
+	<product>
+		<name>C1</name>
+		<price>139.4</price>
+		<mean>0.000125</mean>
+		<standarddeviation>0.0006544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>D1</name>
+		<price>100</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.00014544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>E1</name>
+		<price>59.58</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.0002544</standarddeviation>
+	</product>
+
+	<!-- ....................................................... -->
+	<product>
+		<name>A2</name>
+		<price>15.46</price>
+		<mean>0.000419</mean>
+		<standarddeviation>0.026788</standarddeviation>
+	</product>
+	<product>
+		<name>B2</name>
+		<price>49.875</price>
+		<mean>-0.000156</mean>
+		<standarddeviation>0.00213917</standarddeviation>
+	</product>
+	<product>
+		<name>C2</name>
+		<price>139.4</price>
+		<mean>0.000125</mean>
+		<standarddeviation>0.0006544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>D2</name>
+		<price>100</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.00014544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>E2</name>
+		<price>59.58</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.0002544</standarddeviation>
+	</product>
+
+	<!-- ....................................................... -->
+	<product>
+		<name>A3</name>
+		<price>15.46</price>
+		<mean>0.000419</mean>
+		<standarddeviation>0.026788</standarddeviation>
+	</product>
+	<product>
+		<name>B3</name>
+		<price>49.875</price>
+		<mean>-0.000156</mean>
+		<standarddeviation>0.00213917</standarddeviation>
+	</product>
+	<product>
+		<name>C3</name>
+		<price>139.4</price>
+		<mean>0.000125</mean>
+		<standarddeviation>0.0006544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>D3</name>
+		<price>100</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.00014544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>E3</name>
+		<price>59.58</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.0002544</standarddeviation>
+	</product>
+
+	<!-- ....................................................... -->
+	<product>
+		<name>A4</name>
+		<price>15.46</price>
+		<mean>0.000419</mean>
+		<standarddeviation>0.026788</standarddeviation>
+	</product>
+	<product>
+		<name>B4</name>
+		<price>49.875</price>
+		<mean>-0.000156</mean>
+		<standarddeviation>0.00213917</standarddeviation>
+	</product>
+	<product>
+		<name>C4</name>
+		<price>139.4</price>
+		<mean>0.000125</mean>
+		<standarddeviation>0.0006544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>D4</name>
+		<price>100</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.00014544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>E4</name>
+		<price>59.58</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.0002544</standarddeviation>
+	</product>
+
+
+	<!-- ....................................................... -->
+	<product>
+		<name>A5</name>
+		<price>15.46</price>
+		<mean>0.000419</mean>
+		<standarddeviation>0.026788</standarddeviation>
+	</product>
+	<product>
+		<name>B5</name>
+		<price>49.875</price>
+		<mean>-0.000156</mean>
+		<standarddeviation>0.00213917</standarddeviation>
+	</product>
+	<product>
+		<name>C5</name>
+		<price>139.4</price>
+		<mean>0.000125</mean>
+		<standarddeviation>0.0006544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>D5</name>
+		<price>100</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.00014544</standarddeviation>
+	</product>
+	
+	<product>
+		<name>E5</name>
+		<price>59.58</price>
+		<mean>-0.00125</mean>
+		<standarddeviation>0.0002544</standarddeviation>
 	</product>
 </parameters>

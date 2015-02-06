@@ -39,11 +39,24 @@ namespace VarProcess
 
         static void Main(string[] args)
         {
-            var portfolioProvider = new PortfoliosProvider(@"..\..\..\datas\Portfolios");
-            var productParametersProvider = new StocksPricesProvider(@"..\..\..\datas\Parameters");
-
-            if (args.Length > 0)
+            string rootPath = @"../../../";
+            uint numIterations = 0;
+            if (args.Length == 1 && !UInt32.TryParse(args[0], out numIterations))
             {
+                rootPath = args[0];
+            }
+            else if (args.Length == 2)
+            {
+                UInt32.TryParse(args[0], out numIterations);
+                rootPath = args[1];
+            }
+            Console.WriteLine("Loading data from path {0}", rootPath);
+            var portfolioProvider = new PortfoliosProvider(rootPath + "datas/Portfolios");
+            var productParametersProvider = new StocksPricesProvider(rootPath + "datas/Parameters");
+
+            if (numIterations > 0)
+            {
+                Console.WriteLine("Benchmarking {0} times", numIterations);
                 Benchmark(UInt32.Parse(args[0]), portfolioProvider, productParametersProvider);
                 return;
             }
