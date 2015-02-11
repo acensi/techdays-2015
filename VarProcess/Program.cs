@@ -14,6 +14,7 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using VarProcess.Calculators;
 using VarProcess.Providers;
@@ -39,7 +40,7 @@ namespace VarProcess
 
         static void Main(string[] args)
         {
-            string rootPath = @"../../../";
+            string rootPath = string.Format(@"..{0}..{0}..{0}", Path.DirectorySeparatorChar);
             uint numIterations = 0;
             if (args.Length == 1 && !UInt32.TryParse(args[0], out numIterations))
             {

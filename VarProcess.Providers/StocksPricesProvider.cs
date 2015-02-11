@@ -13,6 +13,7 @@
 // limitations under the License.
 
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -47,9 +48,9 @@ namespace VarProcess.Providers
                 if (!products.ContainsKey(productName))
                     products.Add(productName, new Product() { Name = productName });
                 productParameters.Product = products[productName];
-                productParameters.Price = double.Parse(prod.Element(xmlPrice.Name).Value);
-                productParameters.Mean = double.Parse(prod.Element(xmlMean.Name).Value);
-                productParameters.StandardDeviation = double.Parse(prod.Element(xmlStandarddeviation.Name).Value);
+                productParameters.Price = double.Parse(prod.Element(xmlPrice.Name).Value, CultureInfo.InvariantCulture);
+                productParameters.Mean = double.Parse(prod.Element(xmlMean.Name).Value, CultureInfo.InvariantCulture);
+                productParameters.StandardDeviation = double.Parse(prod.Element(xmlStandarddeviation.Name).Value, CultureInfo.InvariantCulture);
                 (ProductsParameters as IList<ProductParameters>).Add(productParameters);
             }
         }
